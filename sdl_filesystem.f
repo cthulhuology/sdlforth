@@ -1,4 +1,4 @@
-\ main related
+\ filesystem stuff
 \
 \ Copyright (C) 2016 David J Goehrig <dave@dloh.org>
 \ 
@@ -19,10 +19,5 @@
 \  3. This notice may not be removed or altered from any source distribution.
 \
 
-
-FUNCTION: SDL_SetMainReady ( -- )
-
-{ windows
-FUNCTION: SDL_RegisterApp ( z n hInst* -- n )
-FUNCTION: SDL_UnregisterApp ( -- )
-}
+FUNCTION: SDL_GetBasePath ( -- z )
+FUNCTION: SDL_GetPrefPath ( z z -- z )
