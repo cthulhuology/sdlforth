@@ -22,7 +22,11 @@
 
 EMPTY
 
-LIBRARY /usr/lib/i386-linux-gnu/libSDL2-2.0.so.0
+s" windir" find-env [if]
+	LIBRARY SDL2.dll
+[else]
+	LIBRARY SDL2.so
+[then]
 
 requires sdl_main
 requires sdl_std
