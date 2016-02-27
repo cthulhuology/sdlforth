@@ -34,7 +34,7 @@ FUNCTION: SDL_NumJoysticks ( -- n )
 FUNCTION: SDL_JoystickNameForIndex ( n -- z )
 FUNCTION: SDL_JoystickOpen ( n -- joy )
 FUNCTION: SDL_JoystickName ( joy -- z )
-FUNCTION: SLD_JoystickGetDeviceGUID ( n -- guid )
+\ FUNCTION: SLD_JoystickGetDeviceGUID ( n -- guid )
 FUNCTION: SDL_JoystickGetGUID ( joy -- guid )
 FUNCTION: SDL_JoystickGetGUIDString ( guid z n -- ) \ z should be 33 bytes long 
 FUNCTION: SDL_JoystickGetGUIDFromString ( z -- guid )
