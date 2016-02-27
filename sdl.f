@@ -25,7 +25,7 @@ EMPTY
 s" windir" find-env [if]
 	LIBRARY SDL2.dll
 [else]
-	LIBRARY SDL2.so
+	LIBRARY ./SDL2.so
 [then]
 
 requires sdl_main
