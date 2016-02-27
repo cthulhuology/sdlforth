@@ -98,6 +98,12 @@ $0002 constant SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG
 $0004 constant SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG
 $0008 constant SDL_GL_CONTEXT_RESET_ISOLATION_FLAG
 
+: SDL_DisplayMode create 5 cells allot ;
+: SDL_DisplayMode:format ;
+: SDL_DisplayMode:w 1 cells +  ;
+: SDL_DisplayMode:h 2 cells +  ;
+: SDL_DisplayMode:refresh_rate 3 cells +  ;
+: SDL_DisplayMode:driverdata 4 cells +  ;
 
 FUNCTION: SDL_GetNumVideoDrivers ( -- n )
 FUNCTION: SDL_GetVideoDriver ( n -- z )

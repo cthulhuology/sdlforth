@@ -27,7 +27,6 @@ LIBRARY /usr/lib/i386-linux-gnu/libSDL2-2.0.so.0
 requires sdl_main
 requires sdl_std
 requires sdl_rwops
-requires sdl_window
 requires sdl_surface
 requires sdl_audio
 requires sdl_clipboard
@@ -38,6 +37,17 @@ requires sdl_filesystem
 requires sdl_joystick
 requires sdl_controller
 requires sdl_haptic
+requires sdl_hints
+requires sdl_loadso
+requires sdl_log
+requires sdl_messagebox
+requires sdl_mutex
+requires sdl_power
+requires sdl_render
+requires sdl_system
+requires sdl_timer
+requires sdl_version
+requires sdl_video
 
 \ init stuff
 $00000001 constant SDL_INIT_TIMER

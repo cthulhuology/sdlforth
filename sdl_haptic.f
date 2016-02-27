@@ -42,72 +42,72 @@
 4294967295 constant SDL_HAPTIC_INFINITY   
 
 : SDL_HapticDirection create 4 cells allot ;
-: SDL_HapticDirection:type ;	\ byte
+: SDL_HapticDirection:type ;				\ byte
 : SDL_HapticDirection:x 1 cells + ;
 : SDL_HapticDirection:y 2 cells + ;
 : SDL_HapticDirection:z 3 cells + ;
 
 : SDL_HapticConstant create 10 cells allot ;
-: SDL_HapticConstant:type  ; 	\ Uint16
+: SDL_HapticConstant:type  ; 				\ Uint16
 : SDL_HapticConstant:direction 1 cells + ;
 : SDL_HapticConstant:length 5 cells + ;
-: SDL_HapticConstant:delay 6 cells + ; \ Uint16
-: SDL_HapticConstant:interval 6 cells + 2+ ; \ Uint16
-: SDL_HapticConstant:level 7 cells + ; \ Sint16
-: SDL_HapticConstant:attack_length 7 cells + 2+ ; \ Uint16
-: SDL_HapticConstant:attack_level 8 cells + ; \ Uint16
-: SDL_HapticConstant:fade_length 8 cells + 2+ ; \ Uint16
-: SDL_HapticConstant:fade_level 9 cells + ; \ Uint16
+: SDL_HapticConstant:delay 6 cells + ; 			\ Uint16
+: SDL_HapticConstant:interval 6 cells + 2+ ; 		\ Uint16
+: SDL_HapticConstant:level 7 cells + ; 			\ Sint16
+: SDL_HapticConstant:attack_length 7 cells + 2+ ; 	\ Uint16
+: SDL_HapticConstant:attack_level 8 cells + ; 		\ Uint16
+: SDL_HapticConstant:fade_length 8 cells + 2+ ; 	\ Uint16
+: SDL_HapticConstant:fade_level 9 cells + ; 		\ Uint16
 
 : SDL_HapticPeriodic create 12 cells allot ;
 : SDL_HapticPeriodic:type ;
 : SDL_HapticPeriodic:direction 1 cells + ;
 : SDL_HapticPeriodic:length 5 cells + ;
-: SDL_HapticPeriodic:delay 6 cells + ; \ Uint16
-: SDL_HapticPeriodic:button 6 cells + 2+ ; \ Uint16
-: SDL_HapticPeriodic:interval 7 cells + ; \ Uint16
-: SDL_HapticPeriodic:period 7 cells + 2+ ; \ Uint16
-: SDL_HapticPeriodic:magnitude 8 cells + ; \ Sint16
-: SDL_HapticPeriodic:offset 8 cells + 2+ ; \ Sint16
-: SDL_HapticPeriodic:phase 9 cells + ; \ Sint16
-: SDL_HapticPeriodic:attack_length 9 cells + 2+ ; \ Uint16
-: SDL_HapticPeriodic:attack_level 10 cells + ; \ Uint16
-: SDL_HapticPeriodic:fade_length 10 cells + 2+ ; \ Uint16
-: SDL_HapticPeriodic:fade_level 11 cells + ; \ Uint16
+: SDL_HapticPeriodic:delay 6 cells + ; 			\ Uint16
+: SDL_HapticPeriodic:button 6 cells + 2+ ; 		\ Uint16
+: SDL_HapticPeriodic:interval 7 cells + ; 		\ Uint16
+: SDL_HapticPeriodic:period 7 cells + 2+ ; 		\ Uint16
+: SDL_HapticPeriodic:magnitude 8 cells + ; 		\ Sint16
+: SDL_HapticPeriodic:offset 8 cells + 2+ ; 		\ Sint16
+: SDL_HapticPeriodic:phase 9 cells + ; 			\ Sint16
+: SDL_HapticPeriodic:attack_length 9 cells + 2+ ;	\ Uint16
+: SDL_HapticPeriodic:attack_level 10 cells + ; 		\ Uint16
+: SDL_HapticPeriodic:fade_length 10 cells + 2+ ; 	\ Uint16
+: SDL_HapticPeriodic:fade_level 11 cells + ; 		\ Uint16
 
-: SDL_HapticCondition create ; 
+: SDL_HapticCondition create 17 cells allot ; 
 : SDL_HapticCondition:type ;
-: SDL_HapticCondition:direction ;
-: SDL_HapticCondition:length ;
-: SDL_HapticCondition:delay ;
-: SDL_HapticCondition:button ; ;
-: SDL_HapticCondition:interval
-: SDL_HapticCondition:right_sat[3] ;
-: SDL_HapticCondition:left_sat[3] ;
-: SDL_HapticCondition:right_coeff[3] ;
-: SDL_HapticCondition:left_coeff[3] ;
-: SDL_HapticCondition:deadband[3] ;
-: SDL_HapticCondition:center[3] ;
+: SDL_HapticCondition:direction 1 cells + ;
+: SDL_HapticCondition:length 5 cells + ;
+: SDL_HapticCondition:delay 6 cells + ; 		\ Uint16
+: SDL_HapticCondition:button 6 cells + 2+ ; 		\ Uint16
+: SDL_HapticCondition:interval 7 cells + ; 		\ Uint16
+: SDL_HapticCondition:right_sat 7 cells 2 + ; 		\ Uint16[3]
+: SDL_HapticCondition:left_sat 9 cells + ; 		\ Uint16[3]
+: SDL_HapticCondition:right_coeff 10 cells + 2+ ; 	\ Sint16[3]
+: SDL_HapticCondition:left_coeff  12 cells + ; 		\ Sint16[3]
+: SDL_HapticCondition:deadband 13 cells + 2+  ; 	\ Uint16[3]
+: SDL_HapticCondition:center 15 cells + ;
 
-: SDL_HapticRamp ;
+: SDL_HapticRamp create 11 cells allot ;
 : SDL_HapticRamp:type ;
-: SDL_HapticRamp:direction ;
-: SDL_HapticRamp:length ;
-: SDL_HapticRamp:delay ;
-: SDL_HapticRamp:button ;
-: SDL_HapticRamp:interval ;
-: SDL_HapticRamp:start ;
-: SDL_HapticRamp:end ;
-: SDL_HapticRamp:attack_length ;
-: SDL_HapticRamp:attack_level ;
-: SDL_HapticRamp:fade_length ;
-: SDL_HapticRamp:fade_level ;
+: SDL_HapticRamp:direction 1 cells + ;
+: SDL_HapticRamp:length 5 cells + ;
+: SDL_HapticRamp:delay 6 cells + ;			\ Uint16
+: SDL_HapticRamp:button 6 cells + 2+ ;			\ Uint16
+: SDL_HapticRamp:interval 7 cells + ;   		\ Uint16
+: SDL_HapticRamp:start 7 cells + 2+ ;			\ Sint16
+: SDL_HapticRamp:end 8 cells + ;			\ Sint16
+: SDL_HapticRamp:attack_length 8 cells + 2+ ;  		\ Uint16
+: SDL_HapticRamp:attack_level 9 cells + ;   		\ Uint16
+: SDL_HapticRamp:fade_length 9 cells + 2+ ;   		\ Uint16
+: SDL_HapticRamp:fade_level 10 cells + ;   		\ Uint16
 
-: SDL_HapticLeftRight ;
-: SDL_HapticLeftRight:type ;
-: SDL_HapticLeftRight:length ;
-: SDL_HapticLeftRight:large_magnitude ;
-: SDL_HapticLeftRight:small_magnitude ;
+: SDL_HapticLeftRight create 3 cells allot ;
+: SDL_HapticLeftRight:type ; \ Uint15
+: SDL_HapticLeftRight:length 1 cells + ;
+: SDL_HapticLeftRight:large_magnitude 2 cells + ;	\ Uint16
+: SDL_HapticLeftRight:small_magnitude 2 cells + 2+ ;	\ Uint16
 
 : SDL_HapticCustom ;
 : SDL_HapticCustom:type ;
