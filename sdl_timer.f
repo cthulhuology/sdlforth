@@ -18,3 +18,10 @@
 \     misrepresented as being the original software.
 \  3. This notice may not be removed or altered from any source distribution.
 \
+
+FUNCTION: SDL_GetTicks ( -- n )
+FUNCTION: SDL_GetPerformanceCounter ( -- d )
+FUNCTION: SDL_GetPerformanceFrequency ( -- d )
+FUNCTION: SDL_Delay ( n -- )
+FUNCTION: SDL_AddTimer ( n xt data -- id )
+FUNCTION: SDL_RemoveTimer ( id -- flag )

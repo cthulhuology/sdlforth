@@ -24,15 +24,15 @@ $00000001 constant SDL_PREALLOC
 $00000002 constant SDL_RLEACCEL
 $00000004 constant SDL_DONTFREE
 
-: SDL_Surface:flags @ ;
-: SDL_Surface:format 1 cells + @ ;
-: SDL_Surface:w 2 cells + @ ;
-: SDL_Surface:h 3 cells + @ ;
-: SDL_Surface:pitch 4 cells + @ ;
-: SDL_Surface:pixels 5 cells + @ ;
-: SDL_Surface:userdata 6 cells + @ ;
-: SDL_Surface:locked 7 cells + @ ;
-: SDL_Surface:lock_data 8 cells + @ ;
+: SDL_Surface:flags ;
+: SDL_Surface:format 1 cells + ;
+: SDL_Surface:w 2 cells + ;
+: SDL_Surface:h 3 cells + ;
+: SDL_Surface:pitch 4 cells + ;
+: SDL_Surface:pixels 5 cells + ;
+: SDL_Surface:userdata 6 cells + ;
+: SDL_Surface:locked 7 cells + ;
+: SDL_Surface:lock_data 8 cells + ;
 : SDL_Surface:clip_rect 9 cells + ;
 : SDL_Surface:map ." SDL_Surface:map not implemented " ;
 : SDL_Surface:refcount ." SDL_Surface:refcount not implemented " ;
@@ -68,7 +68,7 @@ FUNCTION: SDL_GetClipRect ( surface rect* -- )
 FUNCTION: SDL_ConvertSurface ( surface fmt flags -- surface )
 FUNCTION: SDL_ConvertSurfaceFormat ( surface n flags -- surface )
 FUNCTION: SDL_ConvertPixels ( w h fmt src* pitch fmt dst* pitch -- flag )
-FUNCTION: SDL_FillRect ( surface rect color -- flag )
+FUNCTION: SDL_FillRect ( surface addr color -- flag )
 FUNCTION: SDL_FillRects ( surface rect* count color -- flag )
 FUNCTION: SDL_UpperBlit ( src rect dst rect -- flag )
 

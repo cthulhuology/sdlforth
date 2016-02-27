@@ -31,6 +31,8 @@ s" windir" find-env [if]
 requires sdl_main
 requires sdl_std
 requires sdl_rwops
+requires sdl_pixels
+requires sdl_rect
 requires sdl_surface
 requires sdl_audio
 requires sdl_clipboard
