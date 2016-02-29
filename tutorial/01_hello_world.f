@@ -1,35 +1,29 @@
-
-
 empty
 
 requires sdl			\ requires SDL
+requires utilities/fill		\ fill support for Linux
 
 640 constant SCREEN_WIDTH
 480 constant SCREEN_HEIGHT
 
 SDL_INIT_EVERYTHING SDL_Init		\ initialize video
-\ [if] ." Failed to initialize video" cr bye [then]
+[if] ." Failed to initialize video" cr bye [then]
 
 \ Create a window, and bail on fail
 z" SDL2 Hello World" 
-0 0 SCREEN_WIDTH SCREEN_HEIGHT SDL_WINDOW_SHOWN 
-SDL_CreateWindow value win
-\ window 0= [if] ." Failed to create window" cr bye [then]
+0 0 SCREEN_WIDTH SCREEN_HEIGHT window:create
+window 0= [if] ." Failed to create window" cr bye [then]
 
-\ the window surface for drawing
-win SDL_GetWindowSurface value sur
+$000000 to color
+surface:fill window:update
 
-\ sur 0 $ff00ff  SDL_FillRect  .
-
-sur sdl_surface:pixels @ 
-sur sdl_surface:pitch @
-$ff00ff
-640 480 SDL_FillRect4
-
-win SDL_UpdateWindowSurface	\ and draw the screen update
+$00ff00 to color
+100 100 at 440 280 by 
+rect:fill window:update
 
 2000 SDL_Delay
 
-win SDL_DestroyWindow
+window:destroy 
+
 SDL_Quit
 bye
