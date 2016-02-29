@@ -27,6 +27,7 @@ s" windir" find-env [if]
 [else]
 	LIBRARY ./SDL2.so
 [then]
+2drop
 
 requires sdl_main
 requires sdl_std
