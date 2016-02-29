@@ -68,7 +68,7 @@ FUNCTION: SDL_GetClipRect ( surface rect* -- )
 FUNCTION: SDL_ConvertSurface ( surface fmt flags -- surface )
 FUNCTION: SDL_ConvertSurfaceFormat ( surface n flags -- surface )
 FUNCTION: SDL_ConvertPixels ( w h fmt src* pitch fmt dst* pitch -- flag )
-FUNCTION: SDL_FillRect ( surface addr color -- flag )
+FUNCTION: SDL_FillRect ( surface rect color -- flag )
 FUNCTION: SDL_FillRects ( surface rect* count color -- flag )
 FUNCTION: SDL_UpperBlit ( src rect dst rect -- flag )
 

@@ -19,19 +19,17 @@ SDL_CreateWindow value win
 \ the window surface for drawing
 win SDL_GetWindowSurface value sur
 
-SDL_Rect rect
-0 rect SDL_Rect:x !
-0 rect SDL_Rect:y !
-640 rect SDL_Rect:w !
-480 rect SDL_Rect:h !
+\ sur 0 $ff00ff  SDL_FillRect  .
 
-sur SDL_Surface:format @ $ff $ff $ff SDL_MapRGB value color
+sur sdl_surface:pixels @ 
+sur sdl_surface:pitch @
+$ff00ff
+640 480 SDL_FillRect4
 
-sur rect color SDL_FillRect  .
 win SDL_UpdateWindowSurface	\ and draw the screen update
 
 2000 SDL_Delay
 
-window SDL_DestroyWindow
+win SDL_DestroyWindow
 SDL_Quit
 bye
