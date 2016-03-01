@@ -126,6 +126,8 @@ FUNCTION: SDL_FilterEvents ( xt data -- )
 FUNCTION: SDL_EventState ( type state -- n )
 FUNCTION: SDL_RegisterEvents ( n -- n )
 
+: SDL_Event create 14 cells allot ;
+
 : SDL_GetEventState SDL_QUERY SDL_EventState ;
 
 : SDL_CommonEvent:type @ ;
