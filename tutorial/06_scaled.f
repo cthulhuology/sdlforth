@@ -3,17 +3,10 @@ requires utilities/fill
 requires utilities/events
 
 sdl_init_everything sdl_init
-z" animation" 0 0 640 480 window:create
+z" scaled animation" 0 0 160 160 window:create
 
 z" tutorial/animation.bmp" sdl_loadbmp value bmp
 bmp 0= [if] ." Failed to load bmp" cr bye [then]
-
-\ this rect draws to the surface
-sdl_rect dst
-300 dst sdl_rect:x !
-220 dst sdl_rect:y !
-40 dst sdl_rect:w !
-40 dst sdl_rect:h !
 
 \ this rect finds the frame
 0 0 40 40 rect!
@@ -26,7 +19,7 @@ window:update
 : wink
 	10 0 do	 \ 10 frames of animation
 		I 40 * 0 at	\ i is the frame counter
-		bmp rect surface dst sdl_blitsurface drop
+		bmp rect surface 0 sdl_blitscaled drop
 		window:update
 		1000 30 / sdl_delay	\ 30 fps
 	loop ;	
