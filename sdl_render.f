@@ -72,7 +72,7 @@ FUNCTION: SDL_UpdateYUVTexture ( texture rect Yplane* ypitch Uplane* upitch Vpla
 FUNCTION: SDL_LockTexture ( texture rect pixels* pitch* -- int )
 FUNCTION: SDL_UnlockTexture ( texture -- )
 FUNCTION: SDL_RenderTargetSupported ( renderer -- flag )
-FUNCTION: SDL_RenderTarget ( renderer texture -- flag )
+FUNCTION: SDL_SetRenderTarget ( renderer texture -- flag )
 FUNCTION: SDL_GetRenderTarget ( renderer -- texture )
 FUNCTION: SDL_RenderSetLogicalSize ( renderer w h -- flag )
 FUNCTION: SDL_RenderGetLogicalSize ( renderer w* h* -- )
