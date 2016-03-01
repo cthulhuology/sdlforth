@@ -27,4 +27,4 @@ will need to make sure that they're in a path that SwiftForth can find.
 
 Enjoy,
 
-Dave Goehrig <dave@dloh>
+Dave Goehrig <dave@dloh.org>
