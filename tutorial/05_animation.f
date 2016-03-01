@@ -8,7 +8,6 @@ z" sprite bmp" 0 0 640 480 window:create
 z" tutorial/animation.bmp" sdl_loadbmp value bmp
 bmp 0= [if] ." Failed to load bmp" cr bye [then]
 
-
 \ this rect draws to the surface
 sdl_rect dst
 300 dst sdl_rect:x !
