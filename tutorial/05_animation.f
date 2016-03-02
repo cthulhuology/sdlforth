@@ -3,10 +3,10 @@ requires utilities/fill
 requires utilities/events
 
 sdl_init_everything sdl_init
-z" animation" 0 0 640 480 window:create
+z" animation" 100 100 640 480 window:create
 
 z" tutorial/animation.bmp" sdl_loadbmp value bmp
-bmp 0= [if] ." Failed to load bmp" cr bye [then]
+bmp 0= [if] ." Failed to load bmp" cr [then]
 
 \ this rect draws to the surface
 sdl_rect dst
@@ -37,7 +37,6 @@ window:update
 			event SDL_CommonEvent:type sdl_quitevent = if
 				window:destroy
 				sdl_quit
-				bye
 			then
 		then
 		sdl_delay 1	\ micro sleep

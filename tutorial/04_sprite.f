@@ -5,7 +5,7 @@ sdl_init_everything sdl_init
 z" sprite bmp" 0 0 640 480 window:create
 
 z" tutorial/sprite.bmp" sdl_loadbmp value bmp
-bmp 0= [if] ." Failed to load bmp" cr bye [then]
+bmp 0= [if] ." Failed to load bmp" cr [then]
 
 10 10 20 20 rect!
 
@@ -27,6 +27,5 @@ animate
 
 window:destroy
 sdl_quit
-bye
 
 
