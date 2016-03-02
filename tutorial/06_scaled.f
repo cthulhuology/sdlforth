@@ -3,10 +3,10 @@ requires utilities/fill
 requires utilities/events
 
 sdl_init_everything sdl_init
-z" scaled animation" 0 0 160 160 window:create
+z" scaled animation" 100 100 160 160 window:create
 
 z" tutorial/animation.bmp" sdl_loadbmp value bmp
-bmp 0= [if] ." Failed to load bmp" cr bye [then]
+bmp 0= [if] ." Failed to load bmp" cr [then]
 
 \ this rect finds the frame
 0 0 40 40 rect!
@@ -30,7 +30,6 @@ window:update
 			event SDL_CommonEvent:type sdl_quitevent = if
 				window:destroy
 				sdl_quit
-				bye
 			then
 		then
 		sdl_delay 1	\ micro sleep

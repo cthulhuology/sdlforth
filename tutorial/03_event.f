@@ -20,6 +20,5 @@ main
 
 window:destroy
 sdl_quit
-bye
 
 

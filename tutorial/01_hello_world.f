@@ -7,12 +7,12 @@ requires utilities/fill		\ fill support for Linux
 480 constant SCREEN_HEIGHT
 
 SDL_INIT_EVERYTHING SDL_Init		\ initialize video
-[if] ." Failed to initialize video" cr bye [then]
+[if] ." Failed to initialize video" cr [then]
 
 \ Create a window, and bail on fail
 z" SDL2 Hello World" 
-0 0 SCREEN_WIDTH SCREEN_HEIGHT window:create
-window 0= [if] ." Failed to create window" cr bye [then]
+100 100 SCREEN_WIDTH SCREEN_HEIGHT window:create
+window 0= [if] ." Failed to create window" cr [then]
 
 $000000 to color
 surface:fill window:update
@@ -26,4 +26,3 @@ rect:fill window:update
 window:destroy 
 
 SDL_Quit
-bye
