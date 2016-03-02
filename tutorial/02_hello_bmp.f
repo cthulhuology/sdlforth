@@ -1,16 +1,29 @@
 requires sdl
-requires utilities/fill
 
-sdl_init_everything sdl_init
-z" hello bmp" 0 0 640 480 window:create
+0 value window
+0 value surface
+0 value bmp
 
-z" tutorial/hello.bmp" sdl_loadbmp value bmp
-bmp 0= [if] ." Failed to load bmp" cr [then]
+: init
+	sdl_init_everything sdl_init
+	if ." Failed to initialize video" cr then
+	z" Hello BMP" 100 100 640 480 sdl_window_shown
+	sdl_createwindow to window
+	window 0= if ." Failed to create window" cr then 
+	window sdl_getwindowsurface to surface 
+	surface 0= if ." Failed to get window surface" cr then ;
 
-bmp 0 surface 0 sdl_blitsurface drop
-window:update
+: load_bmp
+	z" tutorial/hello.bmp" sdl_loadbmp to bmp
+	bmp 0= if ." Failed to load bmp" cr then ;
 
-2000 sdl_delay
+: blit
+	bmp 0 surface 0 sdl_blitsurface drop
+	window sdl_updatewindowsurface ;
 
-window:destroy
-sdl_quit
+: go 
+	init load_bmp
+	blit
+	2000 sdl_delay sdl_quit ;
+ 
+go

@@ -1,44 +1,61 @@
 requires sdl
-requires utilities/fill
-requires utilities/events
 
-sdl_init_everything sdl_init
-z" scaled animation" 100 100 160 160 window:create
+0 value window
+0 value surface
+0 value bmp
+0 value color
 
-z" tutorial/animation.bmp" sdl_loadbmp value bmp
-bmp 0= [if] ." Failed to load bmp" cr [then]
+sdl_event e
+sdl_rect rect
 
-\ this rect finds the frame
-0 0 40 40 rect!
+\ this is the frame rect
+0 rect sdl_rect:x !
+0 rect sdl_rect:y !
+40 rect sdl_rect:w !
+40 rect sdl_rect:h !
 
-\ black the screen
-0 to color
-surface:fill
-window:update
+: init
+	sdl_init_everything sdl_init
+	if ." Failed to initialize video" cr then
+	z" Hello Animations" 100 100 640 480 sdl_window_shown
+	sdl_createwindow to window
+	window 0= if ." Failed to create window" cr then 
+	window sdl_getwindowsurface to surface 
+	surface 0= if ." Failed to get window surface" cr then 
+	window sdl_updatewindowsurface drop ;
+
+: loadsprite
+	z" tutorial/animation.bmp" sdl_loadbmp to bmp
+	bmp 0= if ." Failed to load bmp" cr then ;
 
 : wink
+	0 rect sdl_rect:x !
 	10 0 do	 \ 10 frames of animation
-		I 40 * 0 at	\ i is the frame counter
+		I 40 * rect sdl_rect:x ! \ i is the frame counter
 		bmp rect surface 0 sdl_blitscaled drop
-		window:update
+		window sdl_updatewindowsurface drop
 		1000 30 / sdl_delay	\ 30 fps
 	loop ;	
 
+0 value done 
+
 : wait
 	1000 0 do	\ poll events for 1 second
-		event:poll 0= not if
-			event SDL_CommonEvent:type sdl_quitevent = if
-				window:destroy
+		e sdl_pollevent 0= not if
+			e SDL_CommonEvent:type sdl_quitevent = if
 				sdl_quit
+				1 to done
 			then
 		then
 		sdl_delay 1	\ micro sleep
 	loop ;
 
-: animate
+: go
+	init loadsprite
+	window sdl_updatewindowsurface drop
 	begin
 		wink
 		wait
-	again ;
+	done until ;
 
-animate
+go
