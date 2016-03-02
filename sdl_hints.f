@@ -53,6 +53,7 @@ enum SDL_HINT_OVERRIDE
 drop
 
 FUNCTION: SDL_SetHintWithPriority ( z z n -- flag )
+FUNCTION: SDL_SetHint ( z z -- bool )
 FUNCTION: SDL_GetHint ( z -- z )
 FUNCTION: SDL_AddHintCallback ( z xt data -- )
 FUNCTION: SDL_DelHintCallback ( z xt data -- )
