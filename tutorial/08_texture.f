@@ -18,7 +18,6 @@ requires sdl
 	renderer 0= if ." failed to create renderer" cr then 
 	0 sdl_showcursor drop ;
 
-
 sdl_rect rect
 100 rect sdl_rect:x !
 100 rect sdl_rect:y !
@@ -29,8 +28,7 @@ sdl_rect rect
 	texture 0= if ." failed to create texture" cr then
 	bmp sdl_freesurface 
 	texture pad pad 1 cells + rect sdl_rect:w rect sdl_rect:h
-	sdl_querytexture . 
-	;
+	sdl_querytexture drop ;
 
 sdl_event e
 
@@ -42,8 +40,7 @@ sdl_event e
 	e sdl_mousemotionevent:x 20 - rect sdl_rect:x !
 	e sdl_mousemotionevent:y 20 - rect sdl_rect:y !
 	renderer texture 0 rect sdl_rendercopy drop 
-	renderer sdl_renderpresent
-	;
+	renderer sdl_renderpresent ;
 
 : go
 	init
