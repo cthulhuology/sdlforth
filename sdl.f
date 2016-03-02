@@ -48,6 +48,7 @@ requires sdl_hints
 requires sdl_loadso
 requires sdl_log
 requires sdl_messagebox
+requires sdl_mouse
 requires sdl_mutex
 requires sdl_power
 requires sdl_render

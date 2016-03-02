@@ -1,5 +1,4 @@
 requires sdl
-requires sdl_image
 
 0 value window
 0 value renderer
