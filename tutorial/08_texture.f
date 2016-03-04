@@ -55,5 +55,5 @@ sdl_event e
 	done until 
 	sdl_quit ;
 	
-.( move mouse around window to see tecture move )
+.( move mouse around window to see texture move )
 go
