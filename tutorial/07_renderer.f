@@ -1,7 +1,7 @@
 requires sdl
 
-0 value window
-0 value renderer
+sdl_window window
+sdl_renderer renderer
 
 : init
 	sdl_init_video sdl_init

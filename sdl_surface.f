@@ -24,6 +24,8 @@ $00000001 constant SDL_PREALLOC
 $00000002 constant SDL_RLEACCEL
 $00000004 constant SDL_DONTFREE
 
+: SDL_Surface 0 value ;
+
 : SDL_Surface:flags ;
 : SDL_Surface:format 1 cells + ;
 : SDL_Surface:w 2 cells + ;

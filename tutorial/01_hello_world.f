@@ -1,8 +1,10 @@
 requires sdl
 
-0 value window
-0 value surface
+sdl_window window
+sdl_surface surface
+
 $000000 value color
+
 sdl_rect rect
 
 : init

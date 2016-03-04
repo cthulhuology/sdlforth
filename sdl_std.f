@@ -19,6 +19,13 @@
 \  3. This notice may not be removed or altered from any source distribution.
 \
 
+\ convert 4 byte codes to a 32 bit int in standard r g b a format
+: SDL_FOURCC ( a b c d -- n ) 
+     24 lshift swap 16 lshift or swap 8 lshift or or ;
+
+0 constant SDL_FALSE
+1 constant SDL_TRUE
+
 FUNCTION: SDL_malloc ( size -- )
 FUNCTION: SDL_calloc ( nmemb size -- )
 FUNCTION: SDL_realloc ( addr size -- )

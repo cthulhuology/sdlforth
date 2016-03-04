@@ -1,8 +1,8 @@
 requires sdl
 
-0 value window
-0 value surface
-0 value bmp
+sdl_window window
+sdl_surface surface
+sdl_surface bmp
 
 : init
 	sdl_init_everything sdl_init

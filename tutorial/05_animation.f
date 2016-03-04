@@ -1,13 +1,14 @@
 requires sdl
 
-0 value window
-0 value surface
-0 value bmp
-0 value color
-
+sdl_window window
+sdl_surface surface
+sdl_surface bmp
+0 sdl_color color
 sdl_event e
 sdl_rect rect
 sdl_rect dst
+
+0 value done
 
 \ this rect draws to the surface
 300 dst sdl_rect:x !
@@ -49,6 +50,7 @@ sdl_rect dst
 		e sdl_pollevent 0= not if
 			e SDL_CommonEvent:type sdl_quitevent = if
 				sdl_quit
+				1 to done
 			then
 		then
 		sdl_delay 1	\ micro sleep
@@ -60,6 +62,6 @@ sdl_rect dst
 	begin
 		wink
 		wait
-	again ;
+	done until ;
 
 go

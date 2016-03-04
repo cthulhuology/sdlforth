@@ -42,6 +42,9 @@ enum SDL_FLIP_HORIZONTAL
 enum SDL_FLIP_VERTICAL
 drop 
 
+: SDL_Texture 0 value ;
+: SDL_Renderer 0 value ;
+
 : SDL_RendererInfo create 21 cells allot ;
 : SDL_RendererInfo:name ;
 : SDL_RendererInfo:flags 1 cells + ;

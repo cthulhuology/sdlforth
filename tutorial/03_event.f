@@ -1,7 +1,7 @@
 requires sdl
 
-0 value window
-0 value surface
+sdl_window window
+sdl_surface surface
 
 : init
 	sdl_init_everything sdl_init

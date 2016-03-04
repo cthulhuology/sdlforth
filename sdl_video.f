@@ -62,7 +62,6 @@ enum SDL_WINDOWEVENT_FOCUS_LOST
 enum SDL_WINDOWEVENT_CLOSE
 drop
 
-
 0
 enum SDL_GL_RED_SIZE
 enum SDL_GL_GREEN_SIZE
@@ -97,6 +96,8 @@ $0001 constant SDL_GL_CONTEXT_DEBUG_FLAG
 $0002 constant SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG
 $0004 constant SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG
 $0008 constant SDL_GL_CONTEXT_RESET_ISOLATION_FLAG
+
+: SDL_Window 0 value ;
 
 : SDL_DisplayMode create 5 cells allot ;
 : SDL_DisplayMode:format ;

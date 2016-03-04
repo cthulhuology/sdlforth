@@ -1,9 +1,9 @@
 requires sdl
 
-0 value window
-0 value surface
-0 value bmp
-0 value color
+sdl_window window
+sdl_surface surface
+sdl_surface bmp
+0 sdl_color color
 
 sdl_event e
 sdl_rect rect

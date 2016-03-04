@@ -1,9 +1,17 @@
 requires sdl
 
-0 value window
-0 value renderer
-0 value bmp
-0 value texture
+0 value done
+
+sdl_window window
+sdl_renderer renderer
+sdl_surface bmp
+sdl_texture texture
+
+sdl_rect rect
+100 rect sdl_rect:x !
+100 rect sdl_rect:y !
+
+sdl_event e
 
 : init 
 	sdl_init_video sdl_init 
@@ -18,10 +26,6 @@ requires sdl
 	renderer 0= if ." failed to create renderer" cr then 
 	0 sdl_showcursor drop ;
 
-sdl_rect rect
-100 rect sdl_rect:x !
-100 rect sdl_rect:y !
-
 : load_sprite
 	z" tutorial/sprite.bmp" sdl_loadbmp to bmp
 	renderer bmp sdl_createtexturefromsurface to texture
@@ -30,9 +34,6 @@ sdl_rect rect
 	texture pad pad 1 cells + rect sdl_rect:w rect sdl_rect:h
 	sdl_querytexture drop ;
 
-sdl_event e
-
-0 value done
 : isdone 1 to done ; 
 
 : blitsprite
@@ -54,4 +55,5 @@ sdl_event e
 	done until 
 	sdl_quit ;
 	
+.( move mouse around window to see tecture move )
 go
