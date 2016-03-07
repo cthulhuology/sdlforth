@@ -32,6 +32,8 @@ s" windir" find-env [if]
 requires sdl_main
 requires sdl_std
 requires sdl_rwops
+requires sdl_scancode
+requires sdl_keyboard
 requires sdl_pixels
 requires sdl_rect
 requires sdl_surface
@@ -49,6 +51,7 @@ requires sdl_loadso
 requires sdl_log
 requires sdl_messagebox
 requires sdl_mouse
+requires sdl_touch
 requires sdl_mutex
 requires sdl_power
 requires sdl_render
@@ -56,6 +59,7 @@ requires sdl_system
 requires sdl_timer
 requires sdl_version
 requires sdl_video
+requires sdl_shape
 
 \ init stuff
 $00000001 constant SDL_INIT_TIMER

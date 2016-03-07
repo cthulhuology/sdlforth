@@ -60,6 +60,30 @@ SDL_AUDIO_ALLOW_CHANNELS_CHANGE or constant SDL_AUDIO_ALLOW_ANY_CHANGE
 
 128 constant SDL_MIX_MAXVOLUME
 
+: SDL_AudioSpec create 6 cells allot ;
+: SDL_AudioSpec:freq ;
+: SDL_AudioSpec:format 1 cells + ;	\ uint16
+: SDL_AudioSpec:channels 1 cells + 2+ ;	\ byte
+: SDL_AudioSpec:silence 1 cells + 3 + ;	\ byte
+: SDL_AudioSpec:samples 2 cells + ;	\ uint16
+: SDL_AudioSpec:padding 2 cells + 2+ ;	\ uint16
+: SDL_AudioSpec:size 3 cells + ;
+: SDL_AudioSpec:callback 4 cells + ;
+: SDL_AudioSpec:userdate 5 cells + ;
+
+: SDL_AudioCVT create 21 cells allot ;
+: SDL_AudioCVT:needed ;
+: SDL_AudioCVT:src_format 1 cells + ;		\ uint16
+: SDL_AudioCVT:dst_format 1 cells + 2+ ;	\ uint16
+: SDL_AudioCVT:rate_incr 2 cells + ;		\ double
+: SDL_AudioCVT:buf 4 cells + ;			\ byte*
+: SDL_AudioCVT:len 5 cells + ;			
+: SDL_AudioCVT:len_cvt 6 cells + ;			
+: SDL_AudioCVT:len_mult 7 cells + ;			
+: SDL_AudioCVT:len_ratio 8 cells + ;		\ double
+: SDL_AudioCVT:filters 10 cells + ;		\ 10 function pointers
+: SDL_AudioCVT:filter_index 20 cells + ;
+
 FUNCTION: SDL_GetNumAudioDrivers ( -- n )
 FUNCTION: SDL_GetAudioDriver ( n -- z )
 FUNCTION: SDL_AudioInit ( z -- flag )

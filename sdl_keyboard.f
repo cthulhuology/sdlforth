@@ -1,4 +1,4 @@
-\ system stuff
+\ keyboard stuff
 \
 \ Copyright (C) 2016 David J Goehrig <dave@dloh.org>
 \ 
@@ -19,26 +19,24 @@
 \  3. This notice may not be removed or altered from any source distribution.
 \
 
-s" windir" find-env [if]
-	FUNCTION: SDL_Direct3D9GetAdapterIndex ( display -- index )
-	FUNCTION: SDL_RenderGetD3D9Device ( renderer -- device )
-	FUNCTION: SDL_DXGIGetOutputInfo ( n adapter* output* -- )
-[then]
-2drop
+: SDL_Keysym create 4 cells allot ;
+: SDL_Keysym:scancode ;
+: SDL_Keysym:sym 1 cells + ;
+: SDL_Keysym:mod 2 cells + ;	\ 16 bits
 
-s" ios" find-env [if]
-	FUNCTION: SDL_iPhoneSetAnimationCallback ( win interval cb param -- flag )
-	FUNCTION: SDL_iPhoneSetEventPump ( flag -- )
-[then] 
-2drop
-
-s" android" find-env [if]
-	$01 constant SDL_ANDROID_EXTERNAL_STORAGE_READ
-	$02 constant SDL_ANDROID_EXTERNAL_STORAGE_WRITE
-	FUNCTION: SDL_AndroidGetJNIEnv ( -- jnienv* )
-	FUNCTION: SDL_AndroidGetActivity ( -- activity )
-	FUNCTION: SDL_AndroidGetInternalStoragePath ( -- z )
-	FUNCTION: SDL_AndroidGetExternalStorageState ( -- flag )
-	FUNCTION: SDL_AndroidGetExternalStoragePath ( -- z )
-[then]
-2drop
+FUNCTION: SDL_GetKeyboardFocus ( -- win )
+FUNCTION: SDL_GetKeyboardState ( n* -- codes* )
+FUNCTION: SDL_GetModState ( -- mod )
+FUNCTION: SDL_SetModState ( mod -- )
+FUNCTION: SDL_GetKeyFromScancode ( code -- keycode )
+FUNCTION: SDL_GetScancodeFromKey ( key -- code )
+FUNCTION: SDL_GetScancodeName ( code -- z )
+FUNCTION: SDL_GetScancodeFromName ( z -- code )
+FUNCTION: SDL_GetKeyName ( key -- z )
+FUNCTION: SDL_GetKeyFromName ( z -- key )
+FUNCTION: SDL_StartTextInput ( -- )
+FUNCTION: SDL_IsTextInputActive ( -- flag )
+FUNCTION: SDL_StopTextInput ( -- )
+FUNCTION: SDL_SetTextInputRect (  rect -- )
+FUNCTION: SDL_HasScreenKeyboardSupport ( -- flag )
+FUNCTION: SDL_IsScreenKeyboardShown ( win -- flag )

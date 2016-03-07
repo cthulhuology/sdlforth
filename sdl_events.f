@@ -145,7 +145,7 @@ FUNCTION: SDL_RegisterEvents ( n -- n )
 : SDL_KeyboardEvent:windowID 2 cells + @ ;
 : SDL_KeyboardEvent:state 3 cells + c@ ;
 : SDL_KeyboardEvent:repeat 3 cells + 1+ c@ ;
-: SDL_KeyboardEvent:keysym 4 cells + c@ ;
+: SDL_KeyboardEvent:keysym 4 cells + ;
 
 : SDL_TextEditingEvent:type SDL_CommonEvent:type ;
 : SDL_TextEditingEvent:timestamp SDL_CommonEvent:timestamp ;

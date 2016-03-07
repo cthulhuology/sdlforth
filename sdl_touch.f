@@ -1,4 +1,4 @@
-\ system stuff
+\ touch stuff
 \
 \ Copyright (C) 2016 David J Goehrig <dave@dloh.org>
 \ 
@@ -19,26 +19,18 @@
 \  3. This notice may not be removed or altered from any source distribution.
 \
 
-s" windir" find-env [if]
-	FUNCTION: SDL_Direct3D9GetAdapterIndex ( display -- index )
-	FUNCTION: SDL_RenderGetD3D9Device ( renderer -- device )
-	FUNCTION: SDL_DXGIGetOutputInfo ( n adapter* output* -- )
-[then]
-2drop
+: SDL_TouchID create 2 cells allot ;	\ sint64
+: SDL_FingerID create 2 cells allot ;	\ sint64
 
-s" ios" find-env [if]
-	FUNCTION: SDL_iPhoneSetAnimationCallback ( win interval cb param -- flag )
-	FUNCTION: SDL_iPhoneSetEventPump ( flag -- )
-[then] 
-2drop
+: SDL_Finger create 5 cells allot ;
+: SDL_Finger:id ;			\ sint64
+: SDL_Finger:x 2 cells + ;		\ float
+: SDL_Finger:y 3 cells + ;		\ float
+: SDL_Finger:pressure 4 cells + ;	\ float
 
-s" android" find-env [if]
-	$01 constant SDL_ANDROID_EXTERNAL_STORAGE_READ
-	$02 constant SDL_ANDROID_EXTERNAL_STORAGE_WRITE
-	FUNCTION: SDL_AndroidGetJNIEnv ( -- jnienv* )
-	FUNCTION: SDL_AndroidGetActivity ( -- activity )
-	FUNCTION: SDL_AndroidGetInternalStoragePath ( -- z )
-	FUNCTION: SDL_AndroidGetExternalStorageState ( -- flag )
-	FUNCTION: SDL_AndroidGetExternalStoragePath ( -- z )
-[then]
-2drop
+-1 constant SDL_TOUCH_MOUSEID
+
+FUNCTION: SDL_GetNumTouchDevices ( -- n )
+FUNCTION: SDL_GetTouchDevice ( n -- touch id )
+FUNCTION: SDL_GetNumTouchFingers ( touchid -- n )
+FUNCTION: SDL_GetTouchFinger ( touchid n -- finger )
