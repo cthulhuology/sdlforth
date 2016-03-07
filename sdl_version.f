@@ -18,3 +18,14 @@
 \     misrepresented as being the original software.
 \  3. This notice may not be removed or altered from any source distribution.
 \
+
+: SDL_Version create 1 cells allot ;
+: SDL_Version:major ;		\ byte
+: SDL_Version:minor 1+ ;	\ byte
+: SDL_Version:patch 2+ ;	\ byte
+
+: SDL_VERSIONNUM ( x y z -- n ) swap 100 * + swap 1000 * + ;
+
+FUNCTION: SDL_GetVersion ( version* -- )
+FUNCTION: SDL_GetRevision ( -- z )
+FUNCTION: SDL_GetRevisionNumber ( -- n )
